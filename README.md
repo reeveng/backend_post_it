@@ -17,11 +17,6 @@ This project is part of the Web Application course for the Bachelor of Applied I
 
 ## Built With
 
-- [Express](https://expressjs.com/)
-- [mongoose](https://mongoosejs.com/)
-- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
-- [Passport](http://www.passportjs.org/)
-- [zxcvbn](https://github.com/dropbox/zxcvbn)
 - [Swagger](https://swagger.io/)
 
 ## Team
