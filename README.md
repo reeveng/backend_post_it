@@ -17,7 +17,10 @@ This project is part of the Web Application course for the Bachelor of Applied I
 
 ## Built With
 
+- [Asp.Net Core](https://dotnet.microsoft.com/apps/aspnet)
+- [JWT](https://jwt.io)
 - [Swagger](https://swagger.io/)
+
 
 ## Team
 | <a href="https://github.com/reeveng" target="_blank">**Reeven Govaert**</a> | 
