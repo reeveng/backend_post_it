@@ -3,7 +3,7 @@
 <h1 align="center">API</h1>
 
 
-This is a RESTful API for the applications.
+This is a RESTful API for the [frontend application](https://github.com/Web-IV/1920-b1-fe-reeveng).
 
 This project is part of the Web Application IV course for the Bachelor of Applied Informatics at the Ghent University College [HoGent](https://www.hogent.be/en/) (Academic year 2019-2020).
 
