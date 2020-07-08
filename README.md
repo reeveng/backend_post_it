@@ -5,7 +5,7 @@
 
 This is a RESTful API for the applications.
 
-This project is part of the Web Application course for the Bachelor of Applied Informatics at the Ghent University College [HoGent](https://www.hogent.be/en/) (Academic year 2019-2020).
+This project is part of the Web Application IV course for the Bachelor of Applied Informatics at the Ghent University College [HoGent](https://www.hogent.be/en/) (Academic year 2019-2020).
 
 ---
 
