@@ -1,15 +1,15 @@
-﻿using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
-using WebAppsAPI.Models;
+using System.Threading.Tasks;
 using WebAppsAPI.DTO;
+using WebAppsAPI.Models;
 
 namespace RecipeApi.Controllers
 {
@@ -41,13 +41,13 @@ namespace RecipeApi.Controllers
         /// <param name="model">the login details</param>
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult<String>> CreateToken(LoginDTO model)
+        public async Task<ActionResult<string>> CreateToken(LoginDTO model)
         {
-            var user = await _userManager.FindByNameAsync(model.Email);
+            IdentityUser user = await _userManager.FindByNameAsync(model.Email);
 
             if (user != null)
             {
-                var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
 
                 if (result.Succeeded)
                 {
@@ -65,11 +65,11 @@ namespace RecipeApi.Controllers
         /// <returns></returns>
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<ActionResult<String>> Register(RegisterDTO model)
+        public async Task<ActionResult<string>> Register(RegisterDTO model)
         {
             IdentityUser IdentityUser = new IdentityUser { UserName = model.Email, Email = model.Email };
             User user = new User { Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
-            var result = await _userManager.CreateAsync(IdentityUser, model.Password);
+            IdentityResult result = await _userManager.CreateAsync(IdentityUser, model.Password);
 
             if (result.Succeeded)
             {
@@ -81,20 +81,20 @@ namespace RecipeApi.Controllers
             return BadRequest();
         }
 
-        private String GetToken(IdentityUser IdentityUser)
+        private string GetToken(IdentityUser IdentityUser)
         {
             // Create the token
-            var claims = new[]
+            Claim[] claims = new[]
             {
               new Claim(JwtRegisteredClaimNames.Sub, IdentityUser.Email),
               new Claim(JwtRegisteredClaimNames.UniqueName, IdentityUser.UserName)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
 
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
+            JwtSecurityToken token = new JwtSecurityToken(
               null, null,
               claims,
               expires: DateTime.Now.AddMinutes(30),
@@ -109,9 +109,9 @@ namespace RecipeApi.Controllers
         /// <param name="email">Email.</param>/
         [AllowAnonymous]
         [HttpGet("checkusername")]
-        public async Task<ActionResult<Boolean>> CheckAvailableUserName(string email)
+        public async Task<ActionResult<bool>> CheckAvailableUserName(string email)
         {
-            var user = await _userManager.FindByNameAsync(email);
+            IdentityUser user = await _userManager.FindByNameAsync(email);
             return user == null;
         }
     }

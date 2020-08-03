@@ -22,7 +22,7 @@ namespace WebAppsAPI.Models
         }
         public Comments(string text) : this()
         {
-            this.Text = text;
+            Text = text;
         }
         #endregion
     }

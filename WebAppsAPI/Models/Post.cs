@@ -26,12 +26,15 @@ namespace WebAppsAPI.Models
         }
         public Post(string title, string text) : this()
         {
-            this.Title = title;
-            this.Text = text;
+            Title = title;
+            Text = text;
         }
         #endregion
         #region Methods
-        public void AddComments(Comments comments) => Comments.Add(comments);
+        public void AddComments(Comments comments)
+        {
+            Comments.Add(comments);
+        }
 
 
         #endregion

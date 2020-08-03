@@ -29,17 +29,27 @@ namespace WebAppsAPI.Models
 
         public User(string firstName, string lastName, string email) : this()
         {
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Email = email;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
         }
         #endregion
 
         #region Methods
-        public void AddPost(Post post) => Posts.Add(post);
+        public void AddPost(Post post)
+        {
+            Posts.Add(post);
+        }
 
-        public Post GetPost(int id) => Posts.SingleOrDefault(i => i.Id == id);
-        public Post GetPostByTitle(string title) => Posts.SingleOrDefault(p => p.Title == title);
+        public Post GetPost(int id)
+        {
+            return Posts.SingleOrDefault(i => i.Id == id);
+        }
+
+        public Post GetPostByTitle(string title)
+        {
+            return Posts.SingleOrDefault(p => p.Title == title);
+        }
         #endregion
     }
 }

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 using WebAppsAPI.DTO;
 using WebAppsAPI.Models;
-using Microsoft.AspNetCore.Authorization;
 
 
 namespace WebAppsAPI.Controllers
@@ -45,13 +45,15 @@ namespace WebAppsAPI.Controllers
         [AllowAnonymous]
         public ActionResult<Post> GetPost(int id, int postId)
         {
-            if (!_userRepository.TryGetUser(id, out var user))
+            if (!_userRepository.TryGetUser(id, out User user))
             {
                 return NotFound();
             }
             Post post = user.GetPost(postId);
             if (post == null)
+            {
                 return NotFound();
+            }
             return post;
         }
 
@@ -62,9 +64,8 @@ namespace WebAppsAPI.Controllers
         [HttpPost]
         public ActionResult<Post> AddPost(PostDTO post)
         {
-
             User user = _userRepository.GetByEmail(User.Identity.Name);
-            var postToCreate = new Post(post.Title, post.Text);
+            Post postToCreate = new Post(post.Title, post.Text);
             user.AddPost(postToCreate);
             _userRepository.SaveChanges();
             return CreatedAtAction(nameof(GetPost), new { id = user.Id, postId = postToCreate.Id }, postToCreate);
@@ -85,7 +86,7 @@ namespace WebAppsAPI.Controllers
                 return NotFound();
             }
 
-            var commentToAdd = new Comments(comment.Text);
+            Comments commentToAdd = new Comments(comment.Text);
             postToModify.AddComments(commentToAdd);
             _userRepository.SaveChanges();
             return CreatedAtAction(nameof(GetCommentFromPost), new { userId = user.Id, postId = postToModify.Id, commentId = commentToAdd.Id }, commentToAdd);

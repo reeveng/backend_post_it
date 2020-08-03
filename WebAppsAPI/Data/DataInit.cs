@@ -23,22 +23,20 @@ namespace WebAppsAPI.Data
             if (_dbContext.Database.EnsureCreated())
             {
                 User user1 = new User { Email = "govaertr@gmail.com", FirstName = "Ree", LastName = "Govaert" };
+                await CreateUser(user1.Email, "Veilig1@");
 
-                await CreateUser(user1.Email, "YeayBijnaG1SchoolMeer@");
+                User user2 = new User { FirstName = "Ven", LastName = "Gov", Email = "VenGov@gmail.com", };
+                await CreateUser(user2.Email, "Veilig1@");
 
-                User user2 = new User { Email = "randomGuy@gmail.com", FirstName = "Random", LastName = "Guy" };
-
-                await CreateUser(user2.Email, "YeayBijnaG1SchoolMeer@");
-
-                //User user3 = new User { Email = "Web4@gmail.com", FirstName = "Web4", LastName = "Web4" };
-                //await CreateUser(user3.Email, "gelukkiggeennetbeans@");
+                User user3 = new User { Email = "Web4@gmail.com", FirstName = "Web4", LastName = "Web4" };
+                await CreateUser(user3.Email, "Gelukkiggeennetbeans1@");
                 _dbContext.SaveChanges();
             }
 
         }
         private async Task CreateUser(string email, string password)
         {
-            var user = new IdentityUser { UserName = email, Email = email };
+            IdentityUser user = new IdentityUser { UserName = email, Email = email };
             await _userManager.CreateAsync(user, password);
         }
     }
