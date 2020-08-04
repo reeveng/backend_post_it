@@ -1,4 +1,4 @@
-
+<p align="center"><img src="./logo/android-chrome-256x256.png" width="200px"/></p>
 
 <h1 align="center">API</h1>
 
@@ -8,8 +8,6 @@ This is a RESTful API for the [frontend application](https://github.com/Web-IV/1
 This project is part of the Web Application IV course for the Bachelor of Applied Informatics at the Ghent University College [HoGent](https://www.hogent.be/en/) (Academic year 2019-2020).
 
 ---
-
-## Getting Started
 
 ## Getting Started
 
