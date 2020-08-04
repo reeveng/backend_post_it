@@ -26,7 +26,7 @@ This project is part of the Web Application IV course for the Bachelor of Applie
 - [Swagger](https://swagger.io/)
 
 
-## Team
+## Made with :heart: by
 | <a href="https://github.com/reeveng" target="_blank">**Reeven Govaert**</a> | 
 | --- | 
 | [![Reeven](https://avatars3.githubusercontent.com/u/36441093?s=200)](https://github.com/reeveng)|
