@@ -11,9 +11,15 @@ This project is part of the Web Application IV course for the Bachelor of Applie
 
 ## Getting Started
 
+## Getting Started
+
 ### Installation
 
-#### Dummy login
+1. Clone this repo and run it
+
+   ```bash
+   git clone https://github.com/Web-IV/1920-b1-be-reeveng.git
+   ```
 
 ## Built With
 
