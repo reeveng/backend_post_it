@@ -1,4 +1,4 @@
-
+<p align="center"><img src="./logo/android-chrome-256x256.png" width="200px"/></p>
 
 <h1 align="center">API</h1>
 
@@ -13,7 +13,11 @@ This project is part of the Web Application IV course for the Bachelor of Applie
 
 ### Installation
 
-#### Dummy login
+1. Clone this repo and run it
+
+   ```bash
+   git clone https://github.com/Web-IV/1920-b1-be-reeveng.git
+   ```
 
 ## Built With
 
@@ -22,7 +26,7 @@ This project is part of the Web Application IV course for the Bachelor of Applie
 - [Swagger](https://swagger.io/)
 
 
-## Team
+## Made with :heart: by
 | <a href="https://github.com/reeveng" target="_blank">**Reeven Govaert**</a> | 
 | --- | 
 | [![Reeven](https://avatars3.githubusercontent.com/u/36441093?s=200)](https://github.com/reeveng)|
