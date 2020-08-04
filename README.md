@@ -24,6 +24,7 @@ This project is part of the Web Application IV course for the Bachelor of Applie
 - [Asp.Net Core](https://dotnet.microsoft.com/apps/aspnet)
 - [JWT](https://jwt.io)
 - [Swagger](https://swagger.io/)
+- [Entity Framework](https://docs.microsoft.com/en-us/ef/)
 
 
 ## Made with :heart: by
