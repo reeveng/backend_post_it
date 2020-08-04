@@ -39,9 +39,9 @@ namespace WebAppsAPI
             services.AddOpenApiDocument(c =>
             {
                 c.DocumentName = "apidocs";
-                c.Title = "Recipe API";
+                c.Title = "PostIt API";
                 c.Version = "v1";
-                c.Description = "The Recipe API documentation description.";
+                c.Description = "The PostIt API documentation description.";
                 c.DocumentProcessors.Add(new SecurityDefinitionAppender("JWT Token", new SwaggerSecurityScheme
                 {
                     Type = SwaggerSecuritySchemeType.ApiKey,

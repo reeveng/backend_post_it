@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using WebAppsAPI.DTO;
 using WebAppsAPI.Models;
 
-namespace RecipeApi.Controllers
+namespace WebAppsAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
